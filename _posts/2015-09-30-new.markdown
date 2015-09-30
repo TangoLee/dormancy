@@ -1,0 +1,6 @@
+---
+layout: post
+title:  "你好，新世界"
+date:   2015-09-30 14:00:01
+categories: Dormancy update
+---
