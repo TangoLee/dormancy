@@ -1,33 +1,49 @@
-<header>
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="{{ "/" | prepend: site.baseurl }}">
-          <img src="{{site.logo_location}}"> <span class="name-holder">{{ site.title }}</span>
-        </a>
+  <header class="mdl-layout__header">
+
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">{{ site.title }}</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation. We hide it in small screens. -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+      {% for page in site.pages %}
+        {% if page.title %}
+        <a class="mdl-navigation__link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+        {% endif %}
+      {% endfor %}
+      </nav>
+
+      <div class="android-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search-field">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search-field" />
+        </div>
       </div>
 
-      <div class="collapse navbar-collapse" id="navbar">
+      <button class="mdl-button mdl-js-button mdl-button--icon" id="menu-lower-left">
+        <i class="material-icons">more_vert</i>
+      </button>
 
-        <ul id="main-menu" class="nav navbar-nav navbar-right">
-
-          {% for menuItem in site.data.menu.mainmenu %}
-            <li><a href="{{ menuItem[1].url | prepend: site.baseurl }}">
-              <i class="fa {{menuItem[1].icon_class}}"></i> {{menuItem[1].text}}</a>
-            </li>
-          {% endfor %}
-
-        </ul>
-      </div>
-      <!-- /.navbar-collapse -->
+      <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="menu-lower-left">
+        {% for option in site.more_vert %}
+        <li><a href="{{ option[1].link }}" class="mdl-menu__item">{{ option[1].name }}</a></li>
+        {% endfor %}
+      </ul>
     </div>
-    <!-- /.container-fluid -->
-  </nav>
+  </header>
 
-</header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Menu</span>
+    <nav class="mdl-navigation">
+    {% for page in site.pages %}
+      {% if page.title %}
+      <a class="mdl-navigation__link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+      {% endif %}
+    {% endfor %}
+    </nav>
+
+  </div>
+

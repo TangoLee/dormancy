@@ -1,18 +1,30 @@
 # Site settings
-title: Site Title
-email: somename@somedomain.com
-description: "Site Description"
-logo_location: "http://placehold.it/100x100&text=LOGO"
+title: Dormancy 我是一颗休眠的种子
+email: dormancyradiation@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://yourdomain.com" # the base hostname & protocol for your site
+twitter_username: jekyllrb
+github_username:  jekyll
 
-#baseurl: "" # the subpath of your site, e.g. /blog/
-#url: "" # the base hostname & protocol for your site
+# Layout settings
+header_type: default  # values [ drawer, default ]
+post_type: highlight    # values [ highlight, default ]
+pagination_type: default  # values [ ops, default ]
+
+more_vert:
+  option1:
+    name: Cool Option 1
+    link: www.myawesomelink.com
+  option2:
+    name: Cool Option 2
+    link: www.myawesomelink.com
+  option3:
+    name: Cool Option 3
+    link: www.myawesomelink.com
 
 # Build settings
 markdown: kramdown
-kramdown:
-  input: GFM
-
-highlighter: pygments
-
-#Other Global Configuration
-exclude: ['README.md']
